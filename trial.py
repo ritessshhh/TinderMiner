@@ -92,19 +92,6 @@ class tinderBot():
                         req = urllib.request.urlopen(image_url)
                         arr = np.asarray(bytearray(req.read()), dtype=np.uint8)
                         img = cv2.imdecode(arr, cv2.IMREAD_UNCHANGED)
-                        try:
-                            if (isWhite(img)):
-                                like.send_keys(Keys.ARROW_RIGHT)
-                                sleep(3)
-                                break
-
-                            else:
-                                like.send_keys(Keys.ARROW_LEFT)
-                                sleep(3)
-                        except:
-                            space = self.driver.find_element(By.XPATH, '//*[@id="Tinder"]/body')
-                            space.send_keys(Keys.SPACE)
-
                         sleep(3)
                         slides = self.updatedSpans()
 
